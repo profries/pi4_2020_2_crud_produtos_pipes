@@ -1,0 +1,20 @@
+<h3> {{nome}} </h3>
+<label>Preço (maior que): </label>
+<input type="number" [(ngModel)]="preco"> <br/> 
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>NOME</th>
+        <th>MARCA</th>
+        <th>PREÇO</th>
+        <th>VALIDADE</th>
+    </tr>
+    <tr *ngFor='let produto of produtos | filtroPreco:preco'>
+        <td>{{produto.id}}</td>
+        <td>{{produto.nome}}</td>
+        <td>{{produto.marca | uppercase}}</td>
+        <td>{{produto.preco | moeda}}</td> 
+        <td>{{produto.validade | date:'dd/MM/yyyy'}}</td>
+    </tr>        
+</table>
